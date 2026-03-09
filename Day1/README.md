@@ -129,6 +129,9 @@ dnf install -y virt-manager
     - it is flexible
       - doesn't force a specific workflow
       - youcan bring your own CI/CD, Container Registry, your preferred OS ( Mac OS-X, Windows, Linux )
+- container runtime/engine agnostic
+  - K3S supports containerd, Docker and CRI-O
+  - RKE2 supports containerd by default, doesn't support Docker but unofficially even CRI-O works 
 - supports 2 types of Kubernetes cluster
   - K3S ( Kubernetes cluster )
   - RKE2 ( Kubernetes cluster )
