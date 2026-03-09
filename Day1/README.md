@@ -313,7 +313,7 @@ ssh root@worker2
 <img width="1920" height="1200" alt="image" src="https://github.com/user-attachments/assets/e314abbb-5740-476f-9f04-b4913e7909ec" />
 
 
-#### Setup the master RKE2 node
+#### Setup the master RKE2 node Terminal Tab which is already open
 ```
 systemctl stop firewalld
 
@@ -329,3 +329,25 @@ journalctl -u rke2-server -f
 cat /var/lib/rancher/rke2/server/node-token
 ```
 
+#### Setup the worker1 RKE2 node Terminal Tab which is already open
+```
+systemctl stop firewalld
+
+curl -sfL https://get.rke2.io | INSTLL_RKE2_TYPE="agent" sh -
+
+systemctl enable rke2-agent.service
+
+mkdir -p /etc/rancher/rke2/
+touch /etc/rancher/rke2/config.yaml
+```
+
+Paste the below in the file /etc/rancher/rke2/config.yaml
+<pre>
+server: https://master.k8s.tektutor.org:9345
+token : <paste-your-node-token-from-server-vm>  
+</pre>
+
+Now your /etc/rancher/rke2/config.yaml should look as shown below
+```
+cat /etc/rancher/rke2/config.yaml
+```
