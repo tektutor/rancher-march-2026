@@ -139,6 +139,22 @@ dnf install -y virt-manager
   - you could use your already existing Kubernetes cluster in on-prem data-centers 
 </pre>
 
+## Info - VM sizing guide for Master Nodes
+<pre>
+- RAM: 4GB Minimum (we recommend at least 8GB)
+- CPU: 2 Minimum (we recommend at least 4CPU)
+- When limited on CPU and RAM on the control-plane + etcd nodes, 
+  there could be limitations for the amount of agent nodes that can be joined 
+  under standard workload conditions
+     
+Server CPU	Server RAM	Number of Agents
+2	          4 GB	          0-225
+4	          8 GB	          226-450
+8	          16GB	          451-1300
+16+	        32GB	          1300+
+</pre>
+
+
 ## Lab - Installing RKE2 Cluster with single master and two worker nodes
 
 #### Copy the RHEL 9.7 iso to libvirt image folder
