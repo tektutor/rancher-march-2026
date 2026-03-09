@@ -162,6 +162,24 @@ sudo virt-install \
 <img width="1332" height="959" alt="image" src="https://github.com/user-attachments/assets/1a24b3f3-92dd-440d-b012-beaf42f8f69c" />
 <img width="1332" height="959" alt="image" src="https://github.com/user-attachments/assets/2fa09fd3-405f-4a13-892b-692d3be1c254" />
 <img width="1332" height="959" alt="image" src="https://github.com/user-attachments/assets/a74c5942-62cc-49ee-8e1b-53bf61fd99cc" />
+<img width="1332" height="959" alt="image" src="https://github.com/user-attachments/assets/fc37e506-1026-4456-8ee3-0c5da11c1386" />
+
+Let's login to the master node vm and register the OS with Red Hat
+```
+hostnamectl set-hostname master.k8s.tektutor.org
+hostname
+
+subscription-manager register
+
+subscription-manager status
+
+dnf update
+dnf install -y vim net-tools chrony
+
+systemctl enable chronyd
+systemctl start chronyd
+systemctl status chronyd
+```
 
 
 #### Create the worker1 VM in KVM
