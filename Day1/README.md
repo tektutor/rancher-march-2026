@@ -143,7 +143,10 @@ dnf install -y virt-manager
 
 #### Copy the RHEL 9.7 iso to libvirt image folder
 ```
-cp /home/palmeto/Downloads/rhel-9.7-x86_64-boot.iso /var/lib/libvirt/images/
+
+scp palmeto@192.168.3.68:/home/palmeto/Downloads/rhel-9.7-x86_64-dvd.iso /home/palmeto/Downloads
+
+cp /home/palmeto/Downloads/rhel-9.7-x86_64-dvd.iso /var/lib/libvirt/images/
 ls -l /var/lib/libvirt/images/
 ```
 
@@ -155,7 +158,7 @@ sudo virt-install \
 --vcpus 4 \
 --disk path=/var/lib/libvirt/images/rhel9-rke2-master.qcow2,size=30 \
 --os-variant rhel9.7 \
---location /var/lib/libvirt/images/rhel-9.7-x86_64-boot.iso \
+--location /var/lib/libvirt/images/rhel-9.7-x86_64-dvd.iso \
 --network network=default \
 --graphics vnc
 ```
@@ -202,7 +205,7 @@ sudo virt-install \
 --vcpus 4 \
 --disk path=/var/lib/libvirt/images/rhel9-rke2-worker1.qcow2,size=30 \
 --os-variant rhel9.7 \
---location /var/lib/libvirt/images/rhel-9.7-x86_64-boot.iso \
+--location /var/lib/libvirt/images/rhel-9.7-x86_64-dvd.iso \
 --network network=default \
 --graphics vnc
 ```
@@ -233,7 +236,7 @@ sudo virt-install \
 --vcpus 4 \
 --disk path=/var/lib/libvirt/images/rhel9-rke2-worker2.qcow2,size=30 \
 --os-variant rhel9.7 \
---location /var/lib/libvirt/images/rhel-9.7-x86_64-boot.iso \
+--location /var/lib/libvirt/images/rhel-9.7-x86_64-dvd.iso \
 --network network=default \
 --graphics vnc
 ```
