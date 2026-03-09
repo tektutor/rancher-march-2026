@@ -2,7 +2,7 @@
 
 ## Cloud Lab Machine
 <img width="1920" height="1200" alt="image" src="https://github.com/user-attachments/assets/137be0d4-ac04-4970-a083-03a59611e186" />
-<img width="1920" height="1200" alt="image" src="https://github.com/user-attachments/assets/32625f76-9c68-43dd-abad-61c61eb8a9a9" />
+<img width="1920" height="1200" alt="image" src="https://github.com/user-attachments/assets/26aa17e8-5b68-4f43-83e6-9f1768b5a332" />
 
 
 ## Pre-test url
