@@ -1,4 +1,4 @@
-<img width="1332" height="959" alt="image" src="https://github.com/user-attachments/assets/ceeb0bca-3698-42bf-ab99-f5cd56aca87b" /><img width="1920" height="1200" alt="image" src="https://github.com/user-attachments/assets/917066dd-eb05-45aa-a55d-f94d34ef8dd8" /># Day 1
+<img width="1920" height="1200" alt="image" src="https://github.com/user-attachments/assets/66da13e7-3389-4a3f-ba0a-5842b81dacdc" /><img width="1332" height="959" alt="image" src="https://github.com/user-attachments/assets/ceeb0bca-3698-42bf-ab99-f5cd56aca87b" /><img width="1920" height="1200" alt="image" src="https://github.com/user-attachments/assets/917066dd-eb05-45aa-a55d-f94d34ef8dd8" /># Day 1
 
 ## Lab - Install Podman in RHEL v9.7
 ```
@@ -180,6 +180,11 @@ systemctl enable chronyd
 systemctl start chronyd
 systemctl status chronyd
 ```
+<img width="1332" height="959" alt="image" src="https://github.com/user-attachments/assets/90ce5a95-cbad-4e4a-a413-1fd0316346d7" />
+<img width="1332" height="959" alt="image" src="https://github.com/user-attachments/assets/73b4937e-3f64-42aa-883f-7b1a4e89830f" />
+<img width="1920" height="1200" alt="image" src="https://github.com/user-attachments/assets/d220f084-f7fa-4b89-aae9-6ceb22ce58d1" />
+<img width="1920" height="1200" alt="image" src="https://github.com/user-attachments/assets/fe6ce109-64fc-49e8-ba6c-9d66bdaeae90" />
+
 
 
 #### Create the worker1 VM in KVM
