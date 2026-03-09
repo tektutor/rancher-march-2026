@@ -295,6 +295,7 @@ From your RHEL host machine on the cloud, try doing ssh to master vm ( Terminal 
 ssh root@master
 ```
 <img width="1920" height="1200" alt="image" src="https://github.com/user-attachments/assets/e1288546-5981-4de3-9452-0eacc7852fc0" />
+<img width="1920" height="1200" alt="image" src="https://github.com/user-attachments/assets/2847e10c-6a6a-4280-8d0e-2ca836f187f7" />
 
 
 From your RHEL host machine on the cloud, try doing ssh to worker1 vm ( Terminal tab 2 )
@@ -302,6 +303,7 @@ From your RHEL host machine on the cloud, try doing ssh to worker1 vm ( Terminal
 ssh root@worker1
 ```
 <img width="1920" height="1200" alt="image" src="https://github.com/user-attachments/assets/d04f8dae-cd1f-4602-a793-f93d18debf10" />
+<img width="1920" height="1200" alt="image" src="https://github.com/user-attachments/assets/f7d16d57-793e-43b0-8682-5a2268c3bc2e" />
 
 
 From your RHEL host machine on the cloud, try doing ssh to worker2 vm ( Terminal tab 2 )
@@ -309,3 +311,4 @@ From your RHEL host machine on the cloud, try doing ssh to worker2 vm ( Terminal
 ssh root@worker2
 ```
 <img width="1920" height="1200" alt="image" src="https://github.com/user-attachments/assets/03a1911b-33c0-4413-95f7-804d844afc93" />
+<img width="1920" height="1200" alt="image" src="https://github.com/user-attachments/assets/e314abbb-5740-476f-9f04-b4913e7909ec" />
