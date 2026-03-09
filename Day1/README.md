@@ -422,6 +422,40 @@ mkdir -p /root/.kube
 cp /etc/rancher/rke2/rke2.yaml /root/.kube/config
 kubectl get nodes
 ```
-
 <img width="1920" height="1200" alt="image" src="https://github.com/user-attachments/assets/f69bb8ec-7eef-451c-b975-4a6e72762685" />
 
+## Let's install Rancher from the Master node 
+```
+kubectl apply -f https://github.com/cert-manager/cert-manager/releases/latest/download/cert-manager.crds.yaml
+kubectl get crds | grep cert-manager
+
+# Install helm
+curl -fsSL -o get_helm.sh https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-4
+chmod 700 get_helm.sh
+./get_helm.sh
+
+helm repo add jetstack https://charts.jetstack.io
+helm repo update
+
+kubectl create namespace cert-manager
+helm install cert-manager jetstack/cert-manager \
+  --namespace cert-manager \
+  --version v1.14.5
+  --set installCRDs=false
+
+kubectl get pods -n cert-manager
+
+kubectl create namespace cattle-system
+
+helm repo add rancher-latest https://releases.rancher.com/server-charts/latest
+helm repo update
+
+helm install rancher rancher-latest/rancher \
+  --namespace cattle-system \
+  --set hostname=master.k8s.tektutor.org \
+  --set bootstrapPassword=admin \
+  --set ingress.tls.source=secret
+
+kubectl get pods -n cattle-system
+kubectl get ingress -n cattle-system
+```
