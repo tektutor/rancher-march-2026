@@ -16,7 +16,7 @@ podman version
 sudo su -
 
 # Check if virtualization is supported on your lab machine, if you see vmx/svm it is supported
-egrep -c '(vmx|svm)' /proc/cpuinfo
+egrep '(vmx|svm)' /proc/cpuinfo
 
 # Enable RHEL Repositories
 subscription-manager repos \
