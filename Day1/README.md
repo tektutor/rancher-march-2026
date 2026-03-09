@@ -348,7 +348,7 @@ touch /etc/rancher/rke2/config.yaml
 Paste the below in the file /etc/rancher/rke2/config.yaml
 <pre>
 server: https://master.k8s.tektutor.org:9345
-token : <paste-your-node-token-from-server-vm>  
+token : paste-your-node-token-from-server-vm 
 </pre>
 
 Now your /etc/rancher/rke2/config.yaml should look as shown below
