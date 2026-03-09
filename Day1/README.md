@@ -389,4 +389,15 @@ cat /etc/rancher/rke2/config.yaml
 systemctl start rke2-agent.service
 journalctl -u rke2-agent -f
 ```
+<img width="1920" height="1200" alt="image" src="https://github.com/user-attachments/assets/36c79f77-5b99-41bc-bd69-ca8c1ded91e8" />
+<img width="1920" height="1200" alt="image" src="https://github.com/user-attachments/assets/eff8d63a-b644-448a-8c87-01d289389801" />
+<img width="1920" height="1200" alt="image" src="https://github.com/user-attachments/assets/e5bbc20b-1dbb-494b-a6bf-b1c3a2fd7626" />
 
+In the master vm, let's install kubectl client tool
+```
+curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
+chmod +x ./kubectl
+mv ./kubectl /usr/bin
+kubectl version
+
+```
