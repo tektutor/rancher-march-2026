@@ -274,5 +274,5 @@ We need to edit the /etc/hosts file on all the VMs and append their IP at the en
 <pre>
 192.168.122.90 master.k8s.tektutor.org
 192.168.122.2 worker1.k8s.tektutor.org
-192.168.122. worker2.k8s.tektutor.org
+192.168.122.160 worker2.k8s.tektutor.org
 </pre>
