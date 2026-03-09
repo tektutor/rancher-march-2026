@@ -1,3 +1,4 @@
+# Day 1
 
 ## Lab - Install Podman in RHEL v9.7
 ```
@@ -465,7 +466,7 @@ kubectl get ingress -n cattle-system
 <img width="1920" height="1200" alt="image" src="https://github.com/user-attachments/assets/b0afd292-b754-429a-94b6-109ab8a3093a" />
 <img width="1920" height="1200" alt="image" src="https://github.com/user-attachments/assets/689afab1-d4fa-4286-854f-b6ffa6bf1f02" />
 <img width="1920" height="1200" alt="image" src="https://github.com/user-attachments/assets/bf47983a-7fe5-4376-997a-eb8d023878d3" />
-<img width="1920" height="1200" alt="image" src="https://github.com/user-attachments/assets/c9f76aac-a54e-45fd-adca-cfa5d0a5df4d" /># Day 1
+<img width="1920" height="1200" alt="image" src="https://github.com/user-attachments/assets/c9f76aac-a54e-45fd-adca-cfa5d0a5df4d" />
 
 From your Cloud Host Machine, open your firefox web browser
 <pre>
