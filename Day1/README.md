@@ -328,6 +328,7 @@ journalctl -u rke2-server -f
 # If everything was successful upto this point, you will have the node-token
 cat /var/lib/rancher/rke2/server/node-token
 ```
+<img width="1920" height="1200" alt="image" src="https://github.com/user-attachments/assets/a46eae36-2b29-455e-92ff-5ad2a8361bfe" />
 
 #### Setup the worker1 RKE2 node Terminal Tab which is already open
 ```
