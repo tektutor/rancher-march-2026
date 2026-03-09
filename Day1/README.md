@@ -1,4 +1,4 @@
-<img width="1920" height="1200" alt="image" src="https://github.com/user-attachments/assets/917066dd-eb05-45aa-a55d-f94d34ef8dd8" /># Day 1
+<img width="1332" height="959" alt="image" src="https://github.com/user-attachments/assets/ceeb0bca-3698-42bf-ab99-f5cd56aca87b" /><img width="1920" height="1200" alt="image" src="https://github.com/user-attachments/assets/917066dd-eb05-45aa-a55d-f94d34ef8dd8" /># Day 1
 
 ## Lab - Install Podman in RHEL v9.7
 ```
@@ -153,6 +153,15 @@ sudo virt-install \
 --network network=default \
 --graphics vnc
 ```
+<img width="1920" height="1200" alt="image" src="https://github.com/user-attachments/assets/b53546e6-712a-4b8f-9c7c-44fa043767eb" />
+<img width="1332" height="959" alt="image" src="https://github.com/user-attachments/assets/feb606d8-d03b-485c-983f-57e3d631e09d" />
+<img width="1332" height="959" alt="image" src="https://github.com/user-attachments/assets/00409f46-feba-4bce-9b45-a8cc27018edc" />
+<img width="1332" height="959" alt="image" src="https://github.com/user-attachments/assets/01cbcaf4-2121-44b3-b37b-0d0f8f49922a" />
+<img width="1332" height="959" alt="image" src="https://github.com/user-attachments/assets/7f3bbac1-8b4e-479b-b354-0b719e6b6ec7" />
+<img width="1332" height="959" alt="image" src="https://github.com/user-attachments/assets/c241ffba-8d88-4f9f-af98-3bef918c4802" />
+<img width="1332" height="959" alt="image" src="https://github.com/user-attachments/assets/1a24b3f3-92dd-440d-b012-beaf42f8f69c" />
+<img width="1332" height="959" alt="image" src="https://github.com/user-attachments/assets/2fa09fd3-405f-4a13-892b-692d3be1c254" />
+<img width="1332" height="959" alt="image" src="https://github.com/user-attachments/assets/a74c5942-62cc-49ee-8e1b-53bf61fd99cc" />
 
 
 #### Create the worker1 VM in KVM
