@@ -184,6 +184,7 @@ systemctl status chronyd
 <img width="1332" height="959" alt="image" src="https://github.com/user-attachments/assets/73b4937e-3f64-42aa-883f-7b1a4e89830f" />
 <img width="1920" height="1200" alt="image" src="https://github.com/user-attachments/assets/d220f084-f7fa-4b89-aae9-6ceb22ce58d1" />
 <img width="1920" height="1200" alt="image" src="https://github.com/user-attachments/assets/fe6ce109-64fc-49e8-ba6c-9d66bdaeae90" />
+<img width="1920" height="1200" alt="image" src="https://github.com/user-attachments/assets/1b421297-513a-4c09-b82d-af54bb47a081" />
 
 
 
@@ -200,6 +201,23 @@ sudo virt-install \
 --graphics vnc
 ```
 
+In the worker1 VM run the below commands
+```
+hostnamectl set-hostname worker1.k8s.tektutor.org
+hostname
+
+subscription-manager register
+
+subscription-manager status
+
+dnf update
+dnf install -y vim net-tools chrony
+
+systemctl enable chronyd
+systemctl start chronyd
+systemctl status chronyd
+```
+
 
 #### Create the worker2 VM in KVM
 ```
@@ -212,4 +230,21 @@ sudo virt-install \
 --location /var/lib/libvirt/images/rhel-9.7-x86_64-dvd.iso \
 --network network=default \
 --graphics vnc
+```
+
+In the worker2 VM run the below commands
+```
+hostnamectl set-hostname worker2.k8s.tektutor.org
+hostname
+
+subscription-manager register
+
+subscription-manager status
+
+dnf update
+dnf install -y vim net-tools chrony
+
+systemctl enable chronyd
+systemctl start chronyd
+systemctl status chronyd
 ```
