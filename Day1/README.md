@@ -227,7 +227,6 @@ systemctl start chronyd
 systemctl status chronyd
 ```
 
-
 #### Create the worker2 VM in KVM
 ```
 sudo virt-install \
@@ -312,3 +311,21 @@ ssh root@worker2
 ```
 <img width="1920" height="1200" alt="image" src="https://github.com/user-attachments/assets/03a1911b-33c0-4413-95f7-804d844afc93" />
 <img width="1920" height="1200" alt="image" src="https://github.com/user-attachments/assets/e314abbb-5740-476f-9f04-b4913e7909ec" />
+
+
+#### Setup the master RKE2 node
+```
+systemctl stop firewalld
+
+curl -sfL https://get.rke2.io | sh -
+
+systemctl enable rke2-server.service
+systemctl start rke2-server.service
+systemctl status rke2-server.service
+
+journalctl -u rke2-server -f
+
+# If everything was successful upto this point, you will have the node-token
+cat /var/lib/rancher/rke2/server/node-token
+```
+
