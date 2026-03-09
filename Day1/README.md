@@ -102,9 +102,36 @@ dnf install -y virt-manager
   - one or more Custom Controllers that manages the custom resources (CRs)
 - kubectl and oc i.e client tools can be used be in Openshift to manage your application deployments
 - oc Openshift client tool combines kubectl and kubeadm with many additional features 
+- Openshift supports one cluster under the hood
+- Openshift only supports
+  - Openshift cluster 
+  - Master Node ( only Red Hat Enterprise Core OS[RHCOS] is supported )
+  - Worker Node ( either you can install RHEL or RHCOS ) 
+  - v4.x onwards, only supports Podman Container Engine with CRI-O Container Runtime
 </pre>  
 
 ## Info - Rancher Overview
 <pre>
-- it orchestrates/manages Kubernetes Cluster  
+- it orchestrates/manages one or more Kubernetes Cluster  
+- it is developed and maintained by SUSE
+- there are 2 flavours
+  - Rancher Community Edition ( this is opensource and free for personal and commercial use )
+  - Rancher Prime ( Licensed - Enterprise Product )
+- functionally both the community edition and the Rancher Prime are same
+- Rancher Prime
+  - comes with world-wide support from SUSE
+  - have access to curated/scanned container images
+  - have access to private image registry maintained and certified by SUSE
+- cluster agnostic
+    - it can manager K8s cluster running in EKS(AWS), GKE(Google cloud), AKS(Azure cloud), even on-prem(bare metal) servers
+    - it is lighweight
+      - it can be installed with Docker container ( Dev/QA/R&D/POC )
+    - it is flexible
+      - doesn't force a specific workflow
+      - youcan bring your own CI/CD, Container Registry, your preferred OS ( Mac OS-X, Windows, Linux )
+- supports 2 types of Kubernetes cluster
+  - K3S ( Kubernetes cluster )
+  - RKE2 ( Kubernetes cluster )
+  - you could use any managed Kubernetes cluster running in public cloud
+  - you could use your already existing Kubernetes cluster in on-prem data-centers 
 </pre>
