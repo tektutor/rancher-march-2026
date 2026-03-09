@@ -4,6 +4,6 @@
 ```
 sudo su -
 dnf update
-dnf instlal -y container-tools
+dnf install -y container-tools
 podman version
 ```
