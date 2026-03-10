@@ -352,33 +352,20 @@ Let's automate the RKE2 Cluster using Rancher
 
 On the master node VM terminal
 ```
-curl -k https://rancher.k8s.tektutor.org/v3/settings/cacerts | jq -r .value | sha256sum
 
-curl --insecure -fL https://rancher.k8s.tektutor.org/system-agent-install.sh | sudo sh -s - --server https://rancher.k8s.tektutor.org --label 'cattle.io/os=linux' --token gcp8dz46hxzl55qwgxwmh7bckfn7p5wfz6m8zvbmthzcqvtzg55ntl --etcd --controlplane --worker --address 192.168.122.73 --internal-address 192.168.122.73 --node-name master.k8s.tektutor.org --ca-checksum 01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b
 
 
 ```
 
 
 Update your worker1 details in Rancher webconsole
-<img width="1920" height="1200" alt="image" src="https://github.com/user-attachments/assets/6d6f5cc1-5634-4a2c-9241-420133c3dbb6" />
-<img width="1920" height="1200" alt="image" src="https://github.com/user-attachments/assets/f7a3492c-97fe-483c-87d0-1e12bf3b7a17" />
 
 Run this command on your worker1 vm terminal
 ```
-curl -k https://rancher.k8s.tektutor.org/v3/settings/cacerts | jq -r .value | sha256sum
 
-curl --insecure -fL https://rancher.k8s.tektutor.org/system-agent-install.sh | sudo sh -s - --server https://rancher.k8s.tektutor.org --label 'cattle.io/os=linux' --token gcp8dz46hxzl55qwgxwmh7bckfn7p5wfz6m8zvbmthzcqvtzg55ntl --worker --address 192.168.122.26 --internal-address 192.168.122.26 --node-name worker1.k8s.tektutor.org --ca-checksum 01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b
 
 ```
-<img width="1920" height="1200" alt="image" src="https://github.com/user-attachments/assets/35a31f20-40dc-463b-86b7-cd070bb2e76e" />
-<img width="1920" height="1200" alt="image" src="https://github.com/user-attachments/assets/3af255d9-97d8-4bc0-b483-77f460e62349" />
-
 Run this command on your worker2 vm terminal
 ```
-curl -k https://rancher.k8s.tektutor.org/v3/settings/cacerts | jq -r .value | sha256sum
 
-curl --insecure -fL https://rancher.k8s.tektutor.org/system-agent-install.sh | sudo sh -s - --server https://rancher.k8s.tektutor.org --label 'cattle.io/os=linux' --token gcp8dz46hxzl55qwgxwmh7bckfn7p5wfz6m8zvbmthzcqvtzg55ntl --worker --address 192.168.122.34 --internal-address 192.168.122.34 --node-name worker2.k8s.tektutor.org --ca-checksum 01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b
 ```
-<img width="1920" height="1200" alt="image" src="https://github.com/user-attachments/assets/6128dad7-6e9e-41df-995b-d43fee72e401" />
-
