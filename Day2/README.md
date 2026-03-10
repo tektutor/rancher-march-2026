@@ -1,4 +1,4 @@
-# Day 2
+<img width="1920" height="1200" alt="image" src="https://github.com/user-attachments/assets/2787e08e-3fc6-4050-96f6-066996f0e909" /># Day 2
 
 ## Lab - Let's automate RKE2 cluster setup using Rancher
 
@@ -343,3 +343,42 @@ https://rancher.k8s.tektutor.org
 
 <img width="1911" height="1124" alt="image" src="https://github.com/user-attachments/assets/46aa8dcc-2192-4aa1-bb49-c1070fd4de80" />
 <img width="1911" height="1124" alt="image" src="https://github.com/user-attachments/assets/7586ef7c-f58b-4305-abe0-fadc634289da" />
+
+Let's automate the RKE2 Cluster using Rancher
+<img width="1920" height="1200" alt="image" src="https://github.com/user-attachments/assets/317f7b4a-c86d-40c2-9d8c-1347402ff5db" />
+<img width="1920" height="1200" alt="image" src="https://github.com/user-attachments/assets/1c3a5eea-2799-4eef-8a2a-d9905362c60c" />
+<img width="1920" height="1200" alt="image" src="https://github.com/user-attachments/assets/c88dceeb-031b-425f-a30f-fbf078983457" />
+<img width="1920" height="1200" alt="image" src="https://github.com/user-attachments/assets/408450ed-0fd1-4d4a-ac8f-75db2e303b95" />
+
+On the master node VM terminal
+```
+curl -k https://rancher.k8s.tektutor.org/v3/settings/cacerts | jq -r .value | sha256sum
+
+curl --insecure -fL https://rancher.k8s.tektutor.org/system-agent-install.sh | sudo sh -s - --server https://rancher.k8s.tektutor.org --label 'cattle.io/os=linux' --token gcp8dz46hxzl55qwgxwmh7bckfn7p5wfz6m8zvbmthzcqvtzg55ntl --etcd --controlplane --worker --address 192.168.122.73 --internal-address 192.168.122.73 --node-name master.k8s.tektutor.org --ca-checksum 01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b
+
+
+```
+
+
+Update your worker1 details in Rancher webconsole
+<img width="1920" height="1200" alt="image" src="https://github.com/user-attachments/assets/6d6f5cc1-5634-4a2c-9241-420133c3dbb6" />
+<img width="1920" height="1200" alt="image" src="https://github.com/user-attachments/assets/f7a3492c-97fe-483c-87d0-1e12bf3b7a17" />
+
+Run this command on your worker1 vm terminal
+```
+curl -k https://rancher.k8s.tektutor.org/v3/settings/cacerts | jq -r .value | sha256sum
+
+curl --insecure -fL https://rancher.k8s.tektutor.org/system-agent-install.sh | sudo sh -s - --server https://rancher.k8s.tektutor.org --label 'cattle.io/os=linux' --token gcp8dz46hxzl55qwgxwmh7bckfn7p5wfz6m8zvbmthzcqvtzg55ntl --worker --address 192.168.122.26 --internal-address 192.168.122.26 --node-name worker1.k8s.tektutor.org --ca-checksum 01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b
+
+```
+<img width="1920" height="1200" alt="image" src="https://github.com/user-attachments/assets/35a31f20-40dc-463b-86b7-cd070bb2e76e" />
+<img width="1920" height="1200" alt="image" src="https://github.com/user-attachments/assets/3af255d9-97d8-4bc0-b483-77f460e62349" />
+
+Run this command on your worker2 vm terminal
+```
+curl -k https://rancher.k8s.tektutor.org/v3/settings/cacerts | jq -r .value | sha256sum
+
+curl --insecure -fL https://rancher.k8s.tektutor.org/system-agent-install.sh | sudo sh -s - --server https://rancher.k8s.tektutor.org --label 'cattle.io/os=linux' --token gcp8dz46hxzl55qwgxwmh7bckfn7p5wfz6m8zvbmthzcqvtzg55ntl --worker --address 192.168.122.34 --internal-address 192.168.122.34 --node-name worker2.k8s.tektutor.org --ca-checksum 01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b
+```
+<img width="1920" height="1200" alt="image" src="https://github.com/user-attachments/assets/6128dad7-6e9e-41df-995b-d43fee72e401" />
+
