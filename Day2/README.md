@@ -401,11 +401,42 @@ openssl x509 -text -noout -in /etc/rancher/ssl/rancher.crt
 Let's replace our self-signed certificate in the rancher cluster
 ```
 ls -l /etc/rancher/ssl/
-sudo systemctl restart rke2-server.service
-sudo systemctl status rke2-server.service
+sudo cp /etc/rancher/ssl/rancher.crt /etc/rancher/ssl/tls.crt
+sudo cp /etc/rancher/ssl/rancher.key /etc/rancher/ssl/tls.key
+
+sudo mkdir -p /etc/rancher/rke2/ssl
+sudo cp /etc/rancher/ssl/rancher.crt /etc/rancher/rke2/ssl/tls.crt
+sudo cp /etc/rancher/ssl/rancher.key /etc/rancher/rke2/ssl/tls.key
+sudo chown root:root /etc/rancher/rke2/ssl/tls.*
+sudo chmod 600 /etc/rancher/rke2/ssl/tls.key
+
+kubectl -n cattle-system rollout restart deployment rancher
+kubectl -n cattle-system create secret tls tls-rancher \
+  --cert=/etc/rancher/rke2/ssl/tls.crt \
+  --key=/etc/rancher/rke2/ssl/tls.key \
+  --dry-run=client -o yaml | kubectl apply -f -
+
+kubectl -n cattle-system patch ingress rancher \
+  --type='merge' \
+  -p '{"spec":{"tls":[{"hosts":["rancher.k8s.tektutor.org"],"secretName":"tls-rancher"}]}}'
+
+kubectl -n cattle-system rollout restart deployment rancher
+
+openssl s_client -connect rancher.k8s.tektutor.org:443 -servername rancher.k8s.tektutor.org </dev/null | openssl x509 -noout -subject -issuer -dates -ext subjectAltName
+
+sudo systemctl restart rke2-server
+sudo journalctl -u rancher-system-agent -f
 ```
 <img width="1920" height="1200" alt="image" src="https://github.com/user-attachments/assets/51deea12-824c-4523-a7d7-53af3cd78e14" />
 <img width="1920" height="1200" alt="image" src="https://github.com/user-attachments/assets/e3bfe781-6f25-4f1b-a2ff-a66c0d49be4f" />
+
+Create a new cluster
+
+<img width="1920" height="1200" alt="image" src="https://github.com/user-attachments/assets/3c38b39b-ff67-4a9a-94d2-6c61873c7853" />
+<img width="1920" height="1200" alt="image" src="https://github.com/user-attachments/assets/0073ecce-a211-44e8-abe2-a67930840c90" />
+<img width="1920" height="1200" alt="image" src="https://github.com/user-attachments/assets/175226c9-eda9-433a-9eba-0ccb910e39c3" />
+<img width="1920" height="1200" alt="image" src="https://github.com/user-attachments/assets/fefd0e11-ce59-4cee-aaf9-9d02e1053b66" />
+
 
 
 On the master node VM terminal
@@ -417,14 +448,14 @@ wget --no-check-certificate https://rancher.k8s.tektutor.org/system-agent-instal
 
 sudo CATTLE_SKIP_TLS_VERIFY=false ./system-agent-install.sh \
   --server https://rancher.k8s.tektutor.org \
-  --token hn5x5n5tptfstb8vxdfhj8rmclxphj9gltwdxghjvlmgzfbjqk88p7 \
+  --token cr2cfqkhbrx2fz5m5sxkfb5smqgq8dfw6gcdfpz6htsh5twr4sktzb \
   --label 'cattle.io/os=linux' \
   --etcd --controlplane --worker \
   --address 192.168.122.73 \
   --internal-address 192.168.122.73 \
   --node-name master.k8s.tektutor.org
 ```
-<img width="1920" height="1200" alt="image" src="https://github.com/user-attachments/assets/b5aac12b-ae36-48b2-ba2c-8fd0768dbc06" />
+<img width="1920" height="1200" alt="image" src="https://github.com/user-attachments/assets/2190074d-a111-49f1-9e3e-01fb267fb6f8" />
 
 
 Update your worker1 details in Rancher webconsole
