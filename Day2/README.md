@@ -1,4 +1,4 @@
-<img width="1920" height="1200" alt="image" src="https://github.com/user-attachments/assets/2787e08e-3fc6-4050-96f6-066996f0e909" /># Day 2
+<img width="1920" height="1200" alt="image" src="https://github.com/user-attachments/assets/c6261913-01a0-402e-894d-81acc05de290" /><img width="1920" height="1200" alt="image" src="https://github.com/user-attachments/assets/2787e08e-3fc6-4050-96f6-066996f0e909" /># Day 2
 
 ## Lab - Let's automate RKE2 cluster setup using Rancher
 
@@ -350,12 +350,81 @@ Let's automate the RKE2 Cluster using Rancher
 <img width="1920" height="1200" alt="image" src="https://github.com/user-attachments/assets/c88dceeb-031b-425f-a30f-fbf078983457" />
 <img width="1920" height="1200" alt="image" src="https://github.com/user-attachments/assets/408450ed-0fd1-4d4a-ac8f-75db2e303b95" />
 
+On the rancher node VM terminal, let's generate a self-signed TLS certificate that matches rancher.k8s.tektutor.org so the Rancher agent won’t fail with a hostname mismatch.  The rancher.key is our private key.
+```
+sudo mkdir -p /etc/rancher/ssl
+sudo openssl genrsa -out /etc/rancher/ssl/rancher.key 4096
+```
+
+Create a file named rancher-openssl.cnf, we just need to paste the command 
+and the command will automatically create the file for us
+<pre>
+sudo tee /etc/rancher/ssl/rancher-openssl.cnf > /dev/null <<EOF
+[ req ]
+default_bits       = 4096
+prompt             = no
+default_md         = sha256
+distinguished_name = dn
+req_extensions     = req_ext
+
+[ dn ]
+C  = IN
+ST = TN
+L  = Hosur
+O  = TekTutor
+OU = IT
+CN = rancher.k8s.tektutor.org
+
+[ req_ext ]
+subjectAltName = @alt_names
+
+[ alt_names ]
+DNS.1 = rancher.k8s.tektutor.org
+EOF 
+</pre>
+
+Let's generate the self-signed certificate
+```
+sudo openssl req -x509 -nodes -days 365 \
+ -key /etc/rancher/ssl/rancher.key \
+ -out /etc/rancher/ssl/rancher.crt \
+ -config /etc/rancher/ssl/rancher-openssl.cnf \
+ -extensions req_ext
+
+# Verify the certificate
+openssl x509 -text -noout -in /etc/rancher/ssl/rancher.crt
+```
+<img width="1920" height="1200" alt="image" src="https://github.com/user-attachments/assets/426337d1-ed59-445b-9a2f-5d02727ddbb9" />
+<img width="1920" height="1200" alt="image" src="https://github.com/user-attachments/assets/33043376-4e07-42b0-a1c6-de1a6ae59d22" />
+<img width="1920" height="1200" alt="image" src="https://github.com/user-attachments/assets/275cd20a-4a64-42da-a7b0-bf2f4e16f024" />
+
+Let's replace our self-signed certificate in the rancher cluster
+```
+ls -l /etc/rancher/ssl/
+sudo systemctl restart rke2-server.service
+sudo systemctl status rke2-server.service
+```
+<img width="1920" height="1200" alt="image" src="https://github.com/user-attachments/assets/51deea12-824c-4523-a7d7-53af3cd78e14" />
+<img width="1920" height="1200" alt="image" src="https://github.com/user-attachments/assets/e3bfe781-6f25-4f1b-a2ff-a66c0d49be4f" />
+
+
 On the master node VM terminal
 ```
+wget --no-check-certificate https://rancher.k8s.tektutor.org/system-agent-install.sh
 
+# In the system-agent-install.sh script, find curl commands and add -k switch after curl, save it before running
+# the commands below
 
-
+sudo CATTLE_SKIP_TLS_VERIFY=false ./system-agent-install.sh \
+  --server https://rancher.k8s.tektutor.org \
+  --token hn5x5n5tptfstb8vxdfhj8rmclxphj9gltwdxghjvlmgzfbjqk88p7 \
+  --label 'cattle.io/os=linux' \
+  --etcd --controlplane --worker \
+  --address 192.168.122.73 \
+  --internal-address 192.168.122.73 \
+  --node-name master.k8s.tektutor.org
 ```
+<img width="1920" height="1200" alt="image" src="https://github.com/user-attachments/assets/b5aac12b-ae36-48b2-ba2c-8fd0768dbc06" />
 
 
 Update your worker1 details in Rancher webconsole
