@@ -2,7 +2,7 @@
 
 ## Info - Rancher High-Level Architecture
 
-![architecture](rancher-architecture.png)
+![architecture](rancher-architecture.jpg)
 
 <pre>
 - Rancher is an enterprise-grade Kubernetes management platform that allows you to manage multiple clusters 
