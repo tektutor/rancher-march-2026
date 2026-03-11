@@ -97,3 +97,15 @@ Auth Controller - Synchronizes user groups and permissions from the IdP to the c
 - This means you don't have to open inbound firewall ports on your remote resource-constrained or 
   edge locations to manage them
 </pre>
+
+
+## Info - Helm Overview
+<pre>
+- Helm is a Package Manager to install/uninstall/upgrade/downgrade applications in RKE2/K3S Clusters
+- Helm also depends on the kubeconfig file or the KUBE_CONFIG environment to understand how to connect rancher cluster
+- Instead of deploying application with plain manifest(yaml) files, one by one following a particular sequence, we could
+  create Helm Charts ( your declaratives scripts packaged following certain directory structure )
+- it is compressed zip file, internally it maintains the directory structure
+- that way it is easy share the application package(chart) between teams within/outside your organization
+- one can use JFrog Artifactory(acts as a Private Helm Chart Repository) to push/pull Helm charts 
+</pre>
