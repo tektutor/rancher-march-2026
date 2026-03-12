@@ -210,3 +210,14 @@ openssl s_client -connect rancher.tektutor.org:443 -servername rancher.tektutor.
 sudo systemctl restart rke2-server
 ```
 
+In order to access the rancher webconsole from hostname open a tunnel (Do not close this terminal until you are done with rancher)
+```
+ssh -i ~/.local/share/containers/podman/machine/machine -p 34131 -N -L 8443:localhost:443 core@127.0.0.1
+```
+
+Now you may access the rancher webconsole from host machine browser
+```
+https://rancher.tektutor.org:8443
+```
+<img width="1911" height="1111" alt="image" src="https://github.com/user-attachments/assets/962d2f7d-2da5-4193-a380-215d02533e88" />
+
