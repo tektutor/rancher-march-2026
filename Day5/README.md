@@ -84,8 +84,6 @@ kubectl get pods -A
 ```
 <img width="1920" height="1200" alt="image" src="https://github.com/user-attachments/assets/f7ec8048-5c19-440f-be37-5707dca37d2f" />
 
-Install Rancher
-```
 ## Let's install Rancher from the Master node 
 ```
 kubectl apply -f https://github.com/cert-manager/cert-manager/releases/latest/download/cert-manager.crds.yaml
