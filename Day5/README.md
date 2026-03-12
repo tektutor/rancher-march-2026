@@ -220,4 +220,5 @@ Now you may access the rancher webconsole from host machine browser
 https://rancher.tektutor.org:8443
 ```
 <img width="1911" height="1111" alt="image" src="https://github.com/user-attachments/assets/962d2f7d-2da5-4193-a380-215d02533e88" />
+<img width="1911" height="1111" alt="image" src="https://github.com/user-attachments/assets/f6181a01-0c71-418b-b054-99a5610e1aae" />
 
