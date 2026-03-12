@@ -1,0 +1,61 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: wordpress
+  name: wordpress
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: wordpress
+  template:
+    metadata:
+      labels:
+        app: wordpress
+    spec:
+      volumes:
+      - name: wordpress-storage
+        persistentVolumeClaim:
+          claimName: wordpress-pvc
+
+      containers:
+      - name: wordpress
+        image: bitnamilegacy/wordpress:6.8.2-debian-12-r5
+
+        imagePullPolicy: IfNotPresent
+
+        volumeMounts:
+        - name: wordpress-storage
+          mountPath: /bitnami/wordpress
+
+        env:
+        - name: WORDPRESS_DATABASE_USER
+          valueFrom: 
+            secretKeyRef:
+              name: wordpress-login-credentials
+              key: username 
+
+        - name: WORDPRESS_DATABASE_PASSWORD
+          valueFrom: 
+            secretKeyRef:
+              name: wordpress-login-credentials
+              key: password 
+
+        - name: WORDPRESS_DATABASE_NAME
+          valueFrom:
+            configMapKeyRef:
+              name: wordpress-cm
+              key: db_name
+
+        - name: WORDPRESS_DATABASE_HOST
+          valueFrom:
+            configMapKeyRef:
+              name: wordpress-cm
+              key: db_service_name
+
+        - name: WORDPRESS_DATABASE_PORT
+          valueFrom:
+            configMapKeyRef:
+              name: wordpress-cm
+              key: db_service_port

@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mysql
+  labels:
+    app: mysql
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: mysql
+  template:
+    metadata:
+      labels:
+        app: mysql
+    spec:
+      volumes:
+      - name: mysql-storage
+        persistentVolumeClaim:
+          claimName: mysql-pvc
+      containers:
+      - name: mysql
+        image: bitnamilegacy/mariadb:12.0.2-debian-12-r0
+        imagePullPolicy: IfNotPresent
+
+        volumeMounts:
+        - name: mysql-storage
+          mountPath: /bitnami/mariadb/data
+
+        env:
+        - name: MARIADB_ROOT_PASSWORD 
+          valueFrom: 
+             secretKeyRef:
+               name: wordpress-login-credentials
+               key: password
+
+        - name: MARIADB_DATABASE
+          valueFrom: 
+             configMapKeyRef:
+               name: wordpress-cm
+               key: db_name
