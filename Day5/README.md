@@ -5,7 +5,7 @@
 Note
 <pre>
 - By default, RKE2 ships with Canal (Calico + Flannel) and Traefik
-- In our cluster we are about to setup, we will switch to Cilium in the place of Canal
+- In our cluster setup, we will be using Cilium in the place of Canal
 </pre>
 
 Create a lightweight VM using podman
