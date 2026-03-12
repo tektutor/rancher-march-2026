@@ -60,7 +60,7 @@ Rootcaus of the longhorn issue
 <pre>
 - My DownStream Cluster disk only had 4.3GB free space leftover, but longhorn was trying to reserver 5.5GB
 - Configured the longhorn to reserver only 2GB
-- Also updated the threshold to 10% as the default Longhorn thread is 25%
+- Also updated the threshold to 10% as the default Longhorn threshold is 25%
 - My disk was 77% full, leaving only 23% free disk, which is way below the 25% threshold longhorn has set
 - I reduced the threshold to 10%, which fixed the problem
 </pre>
