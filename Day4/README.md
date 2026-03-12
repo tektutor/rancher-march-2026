@@ -72,6 +72,9 @@ cd rancher-march-2026
 cd Day4/wordpress-with-configmaps-and-secrets
 ls -l
 
+# Patch longhorn to use a single replica
+kubectl -n longhorn-system patch lhv pvc-99391510-dcad-43ca-9107-98fbed048294 --type merge -p '{"spec":{"numberOfReplicas":1}}'
+
 kubectl apply -f wordpress-cm.yml
 kubectl apply -f wordpress-secrets.yml
 kubectl apply -f mysql-pvc.yml
