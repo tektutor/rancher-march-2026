@@ -381,3 +381,12 @@ kubectl get clusters.management.cattle.io c-wbqcg -o jsonpath='{.status.conditio
 
 #### Finally, you should see this
 <img width="1911" height="1111" alt="image" src="https://github.com/user-attachments/assets/d1392cd0-99fa-4ff1-a0fa-6185b650cad9" />
+
+## Lab - Fleet GitOps CI/CD
+
+<img width="1911" height="1111" alt="image" src="https://github.com/user-attachments/assets/e3f9d30f-a80f-4379-b705-bdc6e3d18285" />
+<img width="1911" height="1111" alt="image" src="https://github.com/user-attachments/assets/8655d1c6-5878-47cb-8c06-4b4b50169166" />
+<img width="1911" height="1111" alt="image" src="https://github.com/user-attachments/assets/8db5f006-da1c-456a-915d-e6694793e3e6" />
+<img width="1911" height="1111" alt="image" src="https://github.com/user-attachments/assets/a3564145-7218-42e1-b1cb-27bb25caebf8" />
+<img width="1911" height="1111" alt="image" src="https://github.com/user-attachments/assets/ba14e05d-a1a6-4fd3-ad48-e6c7d4adfb4e" />
+<img width="1911" height="1111" alt="image" src="https://github.com/user-attachments/assets/0130fe27-566f-4fdf-b58b-8af21b744d32" />
