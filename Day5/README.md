@@ -463,3 +463,70 @@ Run it
 python3 getprojects.py
 ```
 <img width="1911" height="1111" alt="image" src="https://github.com/user-attachments/assets/bfc4132a-a05f-44e3-b3d2-8c4a6ba6d42a" />
+
+## Lab - Create a project using Rancher API in Python
+
+Create a createproject.py with below code
+<pre>
+import requests
+import urllib3
+import json
+
+# 1. Suppress SSL warnings for self-signed certs
+urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
+
+# --- CONFIGURATION ---
+RANCHER_URL = "https://rancher.tektutor.org"
+API_TOKEN = "token-6lt5v:6pkwbcgtbtwrhn4v56nmvkfnxfb4wn4rjznrx8mc962d78tszjgmgs"  # Your full Bearer Token
+NEW_PROJECT_NAME = "MyProject"
+# ---------------------
+
+def create_upstream_project(project_name):
+    # Endpoint for project creation
+    url = f"{RANCHER_URL}/v3/projects"
+    
+    headers = {
+        "Authorization": f"Bearer {API_TOKEN}",
+        "Content-Type": "application/json"
+    }
+
+    # The payload requires the clusterId to match the upstream cluster ('local')
+    payload = {
+        "name": project_name,
+        "clusterId": "local",
+        "description": "Created via Python API script"
+    }
+
+    try:
+        response = requests.post(
+            url, 
+            headers=headers, 
+            json=payload, 
+            verify=False
+        )
+        
+        # Check for success (201 Created)
+        response.raise_for_status()
+        
+        result = response.json()
+        print(f"Success! Project Created.")
+        print(f"Project Name: {result.get('name')}")
+        print(f"Project ID:   {result.get('id')}")
+
+    except requests.exceptions.HTTPError as err:
+        print(f"Failed to create project.")
+        print(f"Status Code: {response.status_code}")
+        print(f"Response: {response.text}")
+    except Exception as e:
+        print(f"An unexpected error occurred: {e}")
+
+if __name__ == "__main__":
+    create_upstream_project(NEW_PROJECT_NAME)  
+</pre>
+
+Run it
+```
+python3 ./createproject.py
+```
+<img width="1911" height="1111" alt="image" src="https://github.com/user-attachments/assets/06e09117-2de2-4b6a-879e-dc29da58a756" />
+<img width="1911" height="1111" alt="image" src="https://github.com/user-attachments/assets/cde1aed6-a727-41f2-a685-de6e956583bc" />
