@@ -378,3 +378,6 @@ kubectl get pods -A
 ```
 kubectl get clusters.management.cattle.io c-wbqcg -o jsonpath='{.status.conditions[?(@.type=="Ready")]}' | jq
 ```
+
+#### Finally, you should see this
+<img width="1911" height="1111" alt="image" src="https://github.com/user-attachments/assets/d1392cd0-99fa-4ff1-a0fa-6185b650cad9" />
