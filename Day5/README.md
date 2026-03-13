@@ -534,6 +534,19 @@ python3 ./createproject.py
 
 ## Lab - Prometheus & Grafana Dashboard
 
+Note
+<pre>
+- Prometheus & Grafana comes out of the box with Rancher
+- You could see this from Cluster --> Monitoring
+- Prometheus deploy one Prometheus Pod per node as a DaemonSet
+- The Prometheus Pod that runs on the node collect the performance metrics node level, application level, etc
+- Grafana is just the Visual Dashboard which can run technically on any node
+- Prometheus acts a DataSource for Graphana
+- Grafana plots the performance metrics as Visual Charts for our easy interpretation
+- Prometheus also comes with minimal dashboard which is not so user-friendly
+- Prometheus supports PromML a SQL like language to query any specific metrics to use them later in Graphana Dashboards
+</pre>
+
 Navigate to Clusters --> Local --> Monitoring
 <img width="1920" height="1200" alt="image" src="https://github.com/user-attachments/assets/c0bf0894-9646-4d70-95ee-f2393ffe811a" />
 
