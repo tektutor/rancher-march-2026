@@ -391,7 +391,7 @@ kubectl get clusters.management.cattle.io c-wbqcg -o jsonpath='{.status.conditio
 <img width="1911" height="1111" alt="image" src="https://github.com/user-attachments/assets/ba14e05d-a1a6-4fd3-ad48-e6c7d4adfb4e" />
 <img width="1911" height="1111" alt="image" src="https://github.com/user-attachments/assets/0130fe27-566f-4fdf-b58b-8af21b744d32" />
 
-## Lab - Rancher API Automation
+## Lab - Rancher API Automation using curl utility
 
 Get the full list of Rancher API supports
 <pre>
@@ -406,3 +406,60 @@ curl -k -H "Authorization: Bearer  token-6lt5v:6pkwbcgtbtwrhn4v56nmvkfnxfb4wn4rj
 
 <img width="1911" height="1111" alt="image" src="https://github.com/user-attachments/assets/27ca0d9f-68b6-4331-a5af-26b9925dea56" />
 <img width="1911" height="1111" alt="image" src="https://github.com/user-attachments/assets/b063baa6-3be6-4ea2-91c5-8ea240ec2ed5" />
+
+
+### Lab - Get list of projects using python
+
+Create a python script getprojects.py
+<pre>
+import requests
+import json
+import urllib3
+
+RANCHER_URL = "https://rancher.tektutor.org"
+TOKEN = "token-6lt5v:6pkwbcgtbtwrhn4v56nmvkfnxfb4wn4rjznrx8mc962d78tszjgmgs"
+
+HEADERS = {
+    "Authorization": f"Bearer {TOKEN}",
+    "Content-Type" : "application/json"
+}
+
+def getRancherProjects():
+
+    clusterId = "c-zlts7"
+    url = f"{RANCHER_URL}/v3/Projects"
+
+    try:
+
+        urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
+        session = requests.Session()
+        session.verify = False
+
+        response = requests.get(url, headers=HEADERS, verify=True)
+        response.raise_for_status()
+
+        data = response.json()
+        projects = data.get('data', [])
+
+        print(f"{'PROJECT NAME':<30} | {'PROJECT ID':<15} | {'CLUSTER ID':<15}")
+        print("-" * 65 )
+
+        for project in projects:
+            name = project.get('name')
+            p_id = project.get('id')
+            c_id = project.get('clusterId')
+            print(f"{name:<30} | {p_id:<15} | {c_id:<15}")
+
+    except requests.exceptions.HTTPError as err:
+        print(f"HTTP Error: {err}")
+    except Exception as e:
+        print(f"An error occured: {e}")
+
+getRancherProjects()  
+</pre>
+
+Run it
+```
+python3 getprojects.py
+```
+<img width="1911" height="1111" alt="image" src="https://github.com/user-attachments/assets/bfc4132a-a05f-44e3-b3d2-8c4a6ba6d42a" />
