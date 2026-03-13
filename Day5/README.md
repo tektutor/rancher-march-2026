@@ -373,3 +373,15 @@ chmod 600 $HOME/.kube/config
 sudo ln -s /var/lib/rancher/rke2/bin/kubectl /usr/local/bin/kubectl
 kubectl get pods -A
 ```
+
+#### Troubleshooting - Checking if a particular cluster is connecting
+```
+kubectl get clusters.management.cattle.io c-wbqcg -o jsonpath='{.status.conditions[?(@.type=="Ready")]}' | jq
+{
+  "lastUpdateTime": "2026-03-12T20:00:31Z",
+  "message": "Cluster agent is not connected",
+  "reason": "Disconnected",
+  "status": "False",
+  "type": "Ready"
+}
+```
