@@ -1,17 +1,19 @@
 # Rancher March 2026 (09-13 March 2026)
 
-## For Cloud Lab issues 
-<pre>
-Please call or WhatsApp Tech Support Team +91 6366181818  
-</pre>
 
 ## Cloud Lab Machine
 <img width="1920" height="1200" alt="image" src="https://github.com/user-attachments/assets/137be0d4-ac04-4970-a083-03a59611e186" />
 <img width="1920" height="1200" alt="image" src="https://github.com/user-attachments/assets/26aa17e8-5b68-4f43-83e6-9f1768b5a332" />
 
-## Pre-test url
+
+## Kindly share your training feedback here
 <pre>
-https://forms.cloud.microsoft/r/yj6iCaxkJJ   
+https://forms.cloud.microsoft/r/LZxcC6GYum
+</pre>
+
+## Post-test url
+<pre>
+https://forms.cloud.microsoft/r/JDbmwexLBT  
 </pre>
 
 Note
