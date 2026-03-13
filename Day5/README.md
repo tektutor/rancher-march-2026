@@ -390,3 +390,19 @@ kubectl get clusters.management.cattle.io c-wbqcg -o jsonpath='{.status.conditio
 <img width="1911" height="1111" alt="image" src="https://github.com/user-attachments/assets/a3564145-7218-42e1-b1cb-27bb25caebf8" />
 <img width="1911" height="1111" alt="image" src="https://github.com/user-attachments/assets/ba14e05d-a1a6-4fd3-ad48-e6c7d4adfb4e" />
 <img width="1911" height="1111" alt="image" src="https://github.com/user-attachments/assets/0130fe27-566f-4fdf-b58b-8af21b744d32" />
+
+## Lab - Rancher API Automation
+
+Get the full list of Rancher API supports
+<pre>
+curl -k -H "Authorization: Bearer  token-6lt5v:6pkwbcgtbtwrhn4v56nmvkfnxfb4wn4rjznrx8mc962d78tszjgmgs" https://rancher.tektutor.org/v3/schemas | jq
+</pre>
+
+
+Get the list of projects
+<pre>
+curl -k -H "Authorization: Bearer  token-6lt5v:6pkwbcgtbtwrhn4v56nmvkfnxfb4wn4rjznrx8mc962d78tszjgmgs" https://rancher.tektutor.org/v3/projects | jq  
+</pre>
+
+<img width="1911" height="1111" alt="image" src="https://github.com/user-attachments/assets/27ca0d9f-68b6-4331-a5af-26b9925dea56" />
+<img width="1911" height="1111" alt="image" src="https://github.com/user-attachments/assets/b063baa6-3be6-4ea2-91c5-8ea240ec2ed5" />
