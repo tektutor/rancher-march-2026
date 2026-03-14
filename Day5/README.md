@@ -1,5 +1,19 @@
 # Day 5
 
+## Info - ELK/EFK
+<pre>
+- For checking application logs and rancher, rke2 upstream/downstream logs we could use the opensource stack 
+  - ELK or
+  - EFK
+- E stands for ElasticSeach
+- L stands for Logstash
+- K stands for Kibana
+- As an alternate to Logstash, we could use the Fluent
+- Elastic Search is a time-series based database
+- Application will writing their applications logs in their own preferred way, the logstash/fluend will collect the
+  application logs and convert them into a format that can be fed into the elastic search
+</pre>  
+
 ## Lab - Setup Rancher Upstream cluster with Cillium and Traefik Ingress Controller
 
 #### Note
@@ -9,7 +23,7 @@
 - My /var parition is just 70GB, hence when I create just 3~4 VMs it reports no space left.
 - My /home parition has 850GB
 - Hence, I had configured my KVM to use /home/kvm-images as the KVM shared pool to workaround the issue.
-- The reason I'm explain this to you :) is you shall continue using /var/lib/libvirt/images folder
+- The reason I'm explaining this to you :) is you shall continue using /var/lib/libvirt/images folder wherever you see /home/kvm-images
 </pre>
 
 #### Let's create 3 Disk images
